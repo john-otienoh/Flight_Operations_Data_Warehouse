@@ -1,0 +1,101 @@
+flight_key,dep_airport_key,arr_airport_key,airline_key,date_key,aircraft_key,scheduled_duration_mins,passengers,actual_duration_mins,delay_mins,status,delay_category,responsible_party
+1,1,3,2,20230430,13,359,276,349,0,On Time,None,N/A
+2,10,2,3,20230126,5,381,196,465,84,Delayed,Moderate Delay,Airline
+3,10,6,5,20230311,11,159,227,200,41,Delayed,Moderate Delay,Technical Issue
+4,9,10,5,20230218,15,133,266,219,86,Delayed,Moderate Delay,Airline
+5,9,8,3,20230418,5,129,178,120,0,On Time,None,N/A
+6,10,8,5,20230304,19,239,247,343,104,Delayed,Moderate Delay,Airline
+7,7,3,4,20230605,10,218,206,325,107,Delayed,Moderate Delay,Technical Issue
+8,3,5,1,20230909,12,383,255,469,86,Delayed,Moderate Delay,Technical Issue
+9,9,3,5,20230420,9,120,153,154,34,Delayed,Moderate Delay,Weather
+10,8,2,2,20230718,16,360,289,348,0,On Time,None,N/A
+11,3,10,2,20230121,5,73,54,157,84,Delayed,Moderate Delay,Weather
+12,2,9,2,20230228,19,187,259,206,19,Delayed,Minor Delay,Air Traffic Control
+13,3,9,5,20230315,16,88,249,163,75,Delayed,Moderate Delay,Airline
+14,4,3,4,20230511,11,299,143,309,10,Delayed,Minor Delay,Air Traffic Control
+15,5,8,5,20230929,19,137,252,230,93,Delayed,Moderate Delay,Airline
+16,3,9,4,20230615,8,117,177,213,96,Delayed,Moderate Delay,Technical Issue
+17,10,7,4,20230518,10,197,205,183,0,On Time,None,N/A
+18,10,9,1,20230727,4,385,163,416,31,Delayed,Moderate Delay,Technical Issue
+19,5,1,4,20230523,8,295,160,394,99,Delayed,Moderate Delay,Technical Issue
+20,10,7,2,20230825,14,76,208,148,72,Delayed,Moderate Delay,Technical Issue
+21,5,2,5,20230405,15,435,247,451,16,Delayed,Minor Delay,Airline
+22,3,6,1,20230130,18,271,237,387,116,Delayed,Moderate Delay,Airline
+23,1,2,1,20231008,8,263,149,335,72,Delayed,Moderate Delay,Airline
+24,1,6,1,20230415,3,437,97,479,42,Delayed,Moderate Delay,Airline
+25,2,6,5,20230316,13,117,165,144,27,Delayed,Minor Delay,Airline
+26,10,1,5,20230310,6,100,197,209,109,Delayed,Moderate Delay,Airline
+27,8,5,3,20230605,20,176,214,172,0,On Time,None,N/A
+28,10,2,4,20230716,11,111,285,107,0,On Time,None,N/A
+29,5,1,3,20231123,17,454,186,564,110,Delayed,Moderate Delay,Airline
+30,10,4,2,20230723,5,91,73,199,108,Delayed,Moderate Delay,Technical Issue
+31,10,7,4,20230419,1,103,189,102,0,On Time,None,N/A
+32,10,9,5,20230804,20,444,245,520,76,Delayed,Moderate Delay,Technical Issue
+33,8,5,2,20230228,3,387,146,440,53,Delayed,Moderate Delay,Airline
+34,9,3,4,20231230,19,247,97,282,35,Delayed,Moderate Delay,Airline
+35,8,6,5,20230611,3,60,171,114,54,Delayed,Moderate Delay,Airline
+36,1,2,2,20230824,20,416,205,474,58,Delayed,Moderate Delay,Technical Issue
+37,7,9,2,20230410,9,105,98,175,70,Delayed,Moderate Delay,Airline
+38,4,6,2,20231023,12,106,252,174,68,Delayed,Moderate Delay,Technical Issue
+39,5,1,3,20230806,16,466,245,536,70,Delayed,Moderate Delay,Technical Issue
+40,1,8,3,20230109,14,390,257,391,1,Delayed,Minor Delay,Air Traffic Control
+41,7,8,1,20230104,5,374,106,485,111,Delayed,Moderate Delay,Airline
+42,8,9,2,20230507,1,340,70,436,96,Delayed,Moderate Delay,Technical Issue
+43,4,3,2,20231006,20,414,115,500,86,Delayed,Moderate Delay,Technical Issue
+44,2,8,1,20231228,1,270,103,348,78,Delayed,Moderate Delay,Technical Issue
+45,7,3,2,20230223,5,402,117,448,46,Delayed,Moderate Delay,Airline
+46,7,4,2,20230904,12,256,94,325,69,Delayed,Moderate Delay,Technical Issue
+47,5,3,1,20230328,9,95,58,110,15,Delayed,Minor Delay,Air Traffic Control
+48,7,2,4,20230519,3,315,265,311,0,On Time,None,N/A
+49,8,5,2,20230803,13,284,268,381,97,Delayed,Moderate Delay,Technical Issue
+50,8,3,4,20230301,3,361,231,413,52,Delayed,Moderate Delay,Technical Issue
+51,3,6,4,20231217,12,268,92,383,115,Delayed,Moderate Delay,Airline
+52,10,6,2,20230516,2,191,99,287,96,Delayed,Moderate Delay,Weather
+53,10,3,3,20230311,13,428,53,428,0,On Time,None,N/A
+54,7,9,1,20230614,9,121,245,235,114,Delayed,Moderate Delay,Airline
+55,9,1,2,20231005,16,380,63,492,112,Delayed,Moderate Delay,Weather
+56,3,5,3,20230621,15,289,97,378,89,Delayed,Moderate Delay,Weather
+57,10,1,2,20230131,13,117,267,133,16,Delayed,Minor Delay,Air Traffic Control
+58,8,6,4,20230209,4,458,254,450,0,On Time,None,N/A
+59,7,6,2,20230506,10,239,70,294,55,Delayed,Moderate Delay,Technical Issue
+60,1,2,2,20231125,5,336,114,407,71,Delayed,Moderate Delay,Technical Issue
+61,3,8,2,20231005,1,303,248,309,6,Delayed,Minor Delay,Airline
+62,9,5,3,20231120,11,61,163,107,46,Delayed,Moderate Delay,Airline
+63,4,5,2,20230304,15,193,123,250,57,Delayed,Moderate Delay,Weather
+64,8,10,4,20230706,10,300,111,407,107,Delayed,Moderate Delay,Weather
+65,2,3,4,20230117,5,437,156,481,44,Delayed,Moderate Delay,Technical Issue
+66,10,9,1,20230512,4,169,156,179,10,Delayed,Minor Delay,Airline
+67,10,3,2,20230729,20,391,164,423,32,Delayed,Moderate Delay,Technical Issue
+68,7,9,1,20231114,12,426,258,413,0,On Time,None,N/A
+69,10,5,5,20230801,20,345,162,465,120,Delayed,Moderate Delay,Airline
+70,2,8,5,20230817,7,262,124,344,82,Delayed,Moderate Delay,Airline
+71,5,1,4,20230403,5,258,70,246,0,On Time,None,N/A
+72,4,9,1,20231008,16,103,178,148,45,Delayed,Moderate Delay,Weather
+73,1,7,1,20230306,10,272,282,278,6,Delayed,Minor Delay,Air Traffic Control
+74,3,9,4,20230206,11,258,229,351,93,Delayed,Moderate Delay,Airline
+75,6,8,3,20230804,18,399,268,405,6,Delayed,Minor Delay,Airline
+76,2,4,1,20230405,8,442,159,499,57,Delayed,Moderate Delay,Technical Issue
+77,5,2,4,20230307,4,446,268,546,100,Delayed,Moderate Delay,Weather
+78,4,10,1,20231227,2,114,69,200,86,Delayed,Moderate Delay,Technical Issue
+79,5,8,1,20230820,14,240,161,310,70,Delayed,Moderate Delay,Technical Issue
+80,10,9,1,20230828,11,212,193,292,80,Delayed,Moderate Delay,Weather
+81,6,9,5,20230107,9,383,92,483,100,Delayed,Moderate Delay,Weather
+82,10,9,1,20230126,12,441,162,549,108,Delayed,Moderate Delay,Weather
+83,2,7,3,20230512,3,223,217,320,97,Delayed,Moderate Delay,Airline
+84,9,3,3,20230404,10,369,110,474,105,Delayed,Moderate Delay,Airline
+85,8,2,5,20230220,15,236,154,327,91,Delayed,Moderate Delay,Technical Issue
+86,2,4,1,20230125,6,415,197,525,110,Delayed,Moderate Delay,Airline
+87,6,9,2,20230815,1,107,291,122,15,Delayed,Minor Delay,Air Traffic Control
+88,10,6,2,20230504,3,441,181,561,120,Delayed,Moderate Delay,Weather
+89,2,4,2,20231203,15,408,190,429,21,Delayed,Minor Delay,Airline
+90,2,8,1,20230403,14,147,229,252,105,Delayed,Moderate Delay,Weather
+91,4,3,5,20230501,20,378,176,465,87,Delayed,Moderate Delay,Weather
+92,10,1,1,20230925,13,418,139,443,25,Delayed,Minor Delay,Air Traffic Control
+93,6,2,4,20231003,3,460,103,455,0,On Time,None,N/A
+94,4,8,5,20230703,15,176,86,284,108,Delayed,Moderate Delay,Technical Issue
+95,3,5,5,20231209,6,421,115,425,4,Delayed,Minor Delay,Airline
+96,9,1,5,20230830,17,89,79,170,81,Delayed,Moderate Delay,Technical Issue
+97,5,2,4,20231018,9,152,51,235,83,Delayed,Moderate Delay,Airline
+98,4,1,5,20230210,12,74,87,144,70,Delayed,Moderate Delay,Weather
+99,9,1,5,20230611,15,342,212,401,59,Delayed,Moderate Delay,Weather
+100,7,1,1,20230630,6,170,278,194,24,Delayed,Minor Delay,Airline
