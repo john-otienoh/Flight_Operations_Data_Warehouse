@@ -282,20 +282,31 @@ Let’s start what we will do:
 
 In the project files you will see some files:
 
-Project Documentations.pdf: The project's documentations.
-DWH Schema.png: The schema for our data warehouse model.
-DWH Tables.xlsx: The dimensions / facts / indexes of the data warehouse.
-DWH Creation.SQL: The SQL Scripts for creating the data warehouse tables.
-Schema.pdf: The schema for our data warehouse generated from SQL SERVER.
-Tables' Populations: The SQL Scripts to poulate the data into the tables.
-DWHProjAirlineCom.bak: Backup of the data warehouse, you can restore it using SQL Server Management Studio.
-Insights.SQL: The SQL Queries used to gain insights and answer questions from the data warehouse.
+- Project Documentations.pdf: The project's documentations.
+- DWH Schema.png: The schema for our data warehouse model.
+- DWH Tables.xlsx: The dimensions / facts / indexes of the data warehouse.
+- DWH Creation.SQL: The SQL Scripts for creating the data warehouse tables.
+- Schema.pdf: The schema for our data warehouse generated from SQL SERVER.
+- Tables' Populations: The SQL Scripts to poulate the data into the tables.
+- DWHProjAirlineCom.bak: Backup of the data warehouse, you can restore it using SQL Server Management Studio.
+- Insights.SQL: The SQL Queries used to gain insights and answer questions from the data warehouse.
 
 ## Useful Resources
-[Python Requests](https://realpython.com/python-requests/)
-[Rozek Aviation warehouse](https://github.com/rozek1997/aviation-warehouse)
-[AehabV Airline Data Warehouse](https://github.com/aehabV/AirlineDW)
-[Data With Baraa SQL Data Warehouse Project](https://github.com/DataWithBaraa/sql-data-warehouse-project)
-[Al-ghaly Airline Comapny Data Warehouse](https://github.com/al-ghaly/Airline-Company-Data-Warehouse)
-[Open Flights data Source](https://openflights.org/data)
-[Bureau of transportation statistics](https://www.transtats.bts.gov/DL_SelectFields.aspx?gnoyr_VQ=FGJ&QO_fu146_anzr=b0-gvzr)
+- [Rozek Aviation warehouse](https://github.com/rozek1997/aviation-warehouse)
+- [AehabV Airline Data Warehouse](https://github.com/aehabV/AirlineDW)
+- [Data With Baraa SQL Data Warehouse Project](https://github.com/DataWithBaraa/sql-data-warehouse-project)
+- [Al-ghaly Airline Comapny Data Warehouse](https://github.com/al-ghaly/Airline-Company-Data-Warehouse)
+- [Open Flights data Source](https://openflights.org/data)
+- [Bureau of transportation statistics](https://www.transtats.bts.gov/DL_SelectFields.aspx?gnoyr_VQ=FGJ&QO_fu146_anzr=b0-gvzr)
+
+```bash
+# Save the script as init_postgresql.sql
+# Then run:
+psql -U postgres -f init_postgresql_database.sql
+
+# Or with specific database user
+psql -U your_username -d postgres -f init_postgresql_database.sql
+```
+```bash
+psql -U postgres -d flight_ops_datawarehouse -f ddl_bronze.sql
+```
