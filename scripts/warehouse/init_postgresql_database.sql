@@ -12,9 +12,9 @@ WARNING:
     All data in the database will be permanently deleted. Proceed with caution 
     and ensure you have proper backups before running this script.
 */
-DROP DATABASE IF EXISTS flight_ops_datawarehouse;
+DROP DATABASE IF EXISTS flight_ops_data_warehouse;
 CREATE DATABASE flight_ops_data_warehouse;
-\c flight_ops_datawarehouse;
+\c flight_ops_data_warehouse;
 
 CREATE SCHEMA IF NOT EXISTS bronze;
 CREATE SCHEMA IF NOT EXISTS silver;

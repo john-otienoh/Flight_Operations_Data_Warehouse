@@ -58,43 +58,68 @@ DROP TABLE IF EXISTS bronze.csv_flight_raw;
 
 CREATE TABLE bronze.csv_flight_raw (
 
-    -- Raw data (keep close to CSV)
-    flightdate TEXT,
-    reporting_airline TEXT,
-    iata_code_reporting_airline TEXT,
-    tail_number TEXT,
-    flight_number_reporting_airline TEXT,
+    -- Date & Time Identifiers
+    year                    TEXT,
+    quarter                 TEXT,
+    month                   TEXT,
+    day_of_month            TEXT,
+    day_of_week             TEXT,
+    fl_date                 TEXT,
 
-    originairportid TEXT,
-    origin TEXT,
-    origincityname TEXT,
-    originstate TEXT,
+    -- Carrier Info
+    op_unique_carrier       TEXT,
+    op_carrier              TEXT,
+    tail_num                TEXT,
 
-    destairportid TEXT,
-    dest TEXT,
-    destcityname TEXT,
-    deststate TEXT,
+    -- Origin
+    origin_airport_id       TEXT,
+    origin_airport_seq_id   TEXT,
+    origin_city_market_id   TEXT,
+    origin                  TEXT,
+    origin_city_name        TEXT,
+    origin_state_abr        TEXT,
+    origin_state_nm         TEXT,
+    origin_wac              TEXT,
 
-    crselapsedtime TEXT,
-    actualelapsedtime TEXT,
+    -- Destination
+    dest_airport_id         TEXT,
+    dest_airport_seq_id     TEXT,
+    dest_city_market_id     TEXT,
+    dest                    TEXT,
+    dest_city_name          TEXT,
+    dest_state_abr          TEXT,
+    dest_state_nm           TEXT,
+    dest_wac                TEXT,
 
-    depdelay TEXT,
-    arrdelay TEXT,
-    depdelayminutes TEXT,
-    arrdelayminutes TEXT,
+    -- Departure
+    crs_dep_time            TEXT,
+    dep_time                TEXT,
+    taxi_out                TEXT,
+    wheels_off              TEXT,
 
-    cancelled TEXT,
-    diverted TEXT,
+    -- Arrival
+    wheels_on               TEXT,
+    taxi_in                 TEXT,
+    arr_time                TEXT,
 
-    distance TEXT,
+    -- Flight Status
+    cancelled               TEXT,
+    cancellation_code       TEXT,
+    diverted                TEXT,
 
-    carrierdelay TEXT,
-    weatherdelay TEXT,
-    nasdelay TEXT,
-    securitydelay TEXT,
-    lateaircraftdelay TEXT,
+    -- Flight Metrics
+    air_time                TEXT,
+    flights                 TEXT,
+    distance                TEXT,
 
-    -- Metadata (CRITICAL)
-    _ingested_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    _source_file TEXT
+    -- Delay Breakdown
+    carrier_delay           TEXT,
+    weather_delay           TEXT,
+    nas_delay               TEXT,
+    security_delay          TEXT,
+    late_aircraft_delay     TEXT,
+
+    -- Metadata
+    _ingested_at            TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+
 );

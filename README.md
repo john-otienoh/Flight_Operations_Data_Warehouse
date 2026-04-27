@@ -308,5 +308,34 @@ psql -U postgres -f init_postgresql_database.sql
 psql -U your_username -d postgres -f init_postgresql_database.sql
 ```
 ```bash
-psql -U postgres -d flight_ops_datawarehouse -f ddl_bronze.sql
+psql -U postgres -d flight_ops_data_warehouse -f ddl_bronze.sql
+```
+
+```sql
+\copy bronze.csv_fact_flights (
+    dep_airport_key,
+    arr_airport_key,
+    airline_key,
+    date_key,
+    aircraft_key,
+    scheduled_duration_mins,
+    passengers,
+    actual_duration_mins,
+    delay_mins,
+    status,
+    delay_category,
+    responsible_party
+)
+FROM '/home/outis/TechBoy/Flight_Operations_Data_Warehouse/datasets/facts_flights.csv'
+CSV HEADER;
+```
+```bash
+# Allow postgres user to traverse your directory
+chmod o+x /home/outis
+chmod o+x /home/outis/TechBoy
+chmod o+x /home/outis/TechBoy/Flight_Operations_Data_Warehouse
+chmod o+x /home/outis/TechBoy/Flight_Operations_Data_Warehouse/datasets
+
+# Allow postgres to read the CSV files
+chmod o+r /home/outis/TechBoy/Flight_Operations_Data_Warehouse/datasets/*.csv
 ```
