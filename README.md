@@ -298,7 +298,8 @@ In the project files you will see some files:
 - [Al-ghaly Airline Comapny Data Warehouse](https://github.com/al-ghaly/Airline-Company-Data-Warehouse)
 - [Open Flights data Source](https://openflights.org/data)
 - [Bureau of transportation statistics](https://www.transtats.bts.gov/DL_SelectFields.aspx?gnoyr_VQ=FGJ&QO_fu146_anzr=b0-gvzr)
-
+[Postgresql Data Type Formatting Functions](https://www.postgresql.org/docs/current/functions-formatting.html)
+[PostgreSQL NULLIF Function](https://www.pgtutorial.com/postgresql-tutorial/postgresql-nullif/)
 ```bash
 # Save the script as init_postgresql.sql
 # Then run:
