@@ -90,7 +90,7 @@ BEGIN
             NOT(
                 dep_airport_key is NULL OR dep_airport_key = ''
                 OR arr_airport_key IS NULL OR arr_airport_key = ''
-                OR airline_key IS NULL ORR airline_key = ''
+                OR airline_key IS NULL OR airline_key = ''
                 OR date_key IS NULL OR date_key !~ '^\d{8}$'
                 OR NULLIF(scheduled_duration_mins, 'N/A')::INTEGER <= 0
                 OR NULLIF(passenegers, 'N/A')::INTEGER < 0
@@ -177,7 +177,7 @@ BEGIN
                     'Africe', 'Asia', 'Europe',
                     'North America', 'South America', 'Oceania'
                 )
-            )
+            ) AS _is_valid,
 
             CASE
                 WHEN airport_key IS NULL OR airport_key = ''
@@ -208,7 +208,7 @@ BEGIN
         FROM bronze.csv_dim_airports;
 
         end_time := CLOCK_TIMESTAMP();
-        RAISE NOTICE 'silver.dim_airports loaded in % sec'
+        RAISE NOTICE 'silver.dim_airports loaded in % sec',
             EXTRACT(EPOCH FROM (end_time - start_time))::INT;
     
     EXCEPTION WHEN OTHERS THEN
@@ -220,7 +220,9 @@ BEGIN
     RAISE NOTICE '------------------------------------------------';
     RAISE NOTICE 'Loading: silver.dim_airlines';
 
-    TRUNCATE TABLE silver.dim_airlines (
+    TRUNCATE TABLE silver.dim_airlines;
+    
+    INSERT INTO silver.dim_airlines(
         airline_key,
         iata_code,
         airline_name,
@@ -282,8 +284,8 @@ BEGIN
         FROM bronze.csv_dim_airlines;
 
         end_time := CLOCK_TIMESTAMP();
-        RAISE NOTICE 'silver.dim_airlines laoded in % sec'
-            EXTRACT(EPOCH(end_time - start_time))::INT;
+        RAISE NOTICE 'silver.dim_airlines loaded in % sec',
+            EXTRACT(EPOCH FROM (end_time - start_time))::INT;
     EXCEPTION WHEN OTHERS THEN
         RAISE WARNING 'Failed: silver.dim_airports';
     END;
@@ -291,7 +293,7 @@ BEGIN
     BEGIN
         start_time := CLOCK_TIMESTAMP();
         RAISE NOTICE '------------------------------------------------';
-        RAISE NOTICE 'Loading: silver.flight_raw'
+        RAISE NOTICE 'Loading: silver.flight_raw';
         TRUNCATE TABLE silver.flight_raw;
 
         INSERT INTO silver.flight_raw(
@@ -351,7 +353,7 @@ BEGIN
             NULLIF(arr_time, '')::NUMERIC::SMALLINT AS arr_time,
 
             NULLIF(cancelled, '')::NUMERIC = 1 AS cancelled,
-            NULLIF(UPPER(TRIM(cancellation_code), '')) AS cancellation_code,
+            NULLIF(UPPER(TRIM(cancellation_code)), '')  AS cancellation_code,
             NULLIF(diverted, '')::NUMERIC = 1 AS diverted,
 
             NULLIF(air_time, '')::NUMERIC::SMALLINT AS carrier_delay,
