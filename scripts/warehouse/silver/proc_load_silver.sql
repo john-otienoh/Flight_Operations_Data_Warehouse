@@ -39,9 +39,9 @@ BEGIN
             aircraft_key,
 
             scheduled_duration_mins,
-            actual_duartion_mins,
+            actual_duration_mins,
             delay_mins,
-            passenegers,
+            passengers,
             status,
             delay_category,
             responsible_party,
@@ -52,7 +52,6 @@ BEGIN
             _rejection_reason,
             _source_table,
             _ingested_at,
-            _silver_loaded_at,
             _record_hash
         )
         SELECT
@@ -68,9 +67,9 @@ BEGIN
             aircraft_key,
 
             NULLIF(scheduled_duration_mins, 'N/A')::INTEGER AS scheduled_duration_mins,
-            NULLIF(actual_duartion_mins, 'N/A')::INTEGER AS actual_duartion_mins,
+            NULLIF(actual_duration_mins, 'N/A')::INTEGER AS actual_duration_mins,
             NULLIF(delay_mins, 'N/A')::INTEGER AS delay_mins,
-            NULLIF(passenegers, 'N/A')::INTEGER AS passenegers,
+            NULLIF(passengers, 'N/A')::INTEGER AS passengers,
 
             TRIM(status) AS status,
             TRIM(delay_category) AS delay_category,
@@ -85,7 +84,7 @@ BEGIN
                 
             END     AS delay_severity,
 
-            NULLIF(actual_duartion_mins, 'N/A')::INTEGER - NULLIF(scheduled_duration_mins, 'N/A') AS flight_duration_diff_mins,
+            NULLIF(actual_duration_mins, 'N/A')::INTEGER - NULLIF(scheduled_duration_mins, 'N/A')::INTEGER AS flight_duration_diff_mins,
 
             NOT(
                 dep_airport_key is NULL OR dep_airport_key = ''
@@ -93,7 +92,7 @@ BEGIN
                 OR airline_key IS NULL OR airline_key = ''
                 OR date_key IS NULL OR date_key !~ '^\d{8}$'
                 OR NULLIF(scheduled_duration_mins, 'N/A')::INTEGER <= 0
-                OR NULLIF(passenegers, 'N/A')::INTEGER < 0
+                OR NULLIF(passengers, 'N/A')::INTEGER < 0
             ) AS _is_valid,
 
             CASE
@@ -326,18 +325,18 @@ BEGIN
             UPPER(TRIM(op_unique_carrier)) AS op_unique_carrier,
             UPPER(TRIM(op_carrier)) AS op_carrier,
             UPPER(TRIM(tail_num)) AS tail_num,
-            NULLIF(origin_airport_id, '')::SMALLINT AS origin_airport_id,
-            NULLIF(origin_airport_seq_id, '')::SMALLINT AS origin_airport_seq_id,
-            NULLIF(origin_city_market_id, '')::SMALLINT AS origin_city_market_id,
+            NULLIF(origin_airport_id, '')::INTEGER AS origin_airport_id,
+            NULLIF(origin_airport_seq_id, '')::INTEGER AS origin_airport_seq_id,
+            NULLIF(origin_city_market_id, '')::INTEGER AS origin_city_market_id,
             UPPER(TRIM(origin)) AS origin,
             TRIM(origin_city_name) AS origin_city_name,
             UPPER(TRIM(origin_state_abr))               AS origin_state_abr,
             TRIM(origin_state_nm)                       AS origin_state_nm,
             NULLIF(origin_wac,             '')::INTEGER AS origin_wac,
 
-            NULLIF(dest_airport_id, '')::SMALLINT AS dest_airport_id,
-            NULLIF(dest_airport_seq_id, '')::SMALLINT AS dest_airport_seq_id,
-            NULLIF(dest_city_market_id, '')::SMALLINT AS dest_city_market_id,
+            NULLIF(dest_airport_id, '')::INTEGER AS dest_airport_id,
+            NULLIF(dest_airport_seq_id, '')::INTEGER AS dest_airport_seq_id,
+            NULLIF(dest_city_market_id, '')::INTEGER AS dest_city_market_id,
             UPPER(TRIM(dest)) AS dest,
             TRIM(dest_city_name) AS dest_city_name,
             UPPER(TRIM(dest_state_abr))               AS dest_state_abr,
@@ -356,10 +355,15 @@ BEGIN
             NULLIF(UPPER(TRIM(cancellation_code)), '')  AS cancellation_code,
             NULLIF(diverted, '')::NUMERIC = 1 AS diverted,
 
-            NULLIF(air_time, '')::NUMERIC::SMALLINT AS carrier_delay,
-            NULLIF(weather_delay, '')::NUMERIC::SMALLINT AS weather_delay,
-            NULLIF(nas_delay, '')::NUMERIC::SMALLINT AS late_aircraft_delay,
-
+            NULLIF(air_time,            '')::NUMERIC::SMALLINT  AS air_time,          
+            NULLIF(flights,             '')::NUMERIC::SMALLINT  AS flights,             
+            NULLIF(distance,            '')::NUMERIC(7,2)       AS distance,            
+            NULLIF(carrier_delay,       '')::NUMERIC::SMALLINT  AS carrier_delay,       
+            NULLIF(weather_delay,       '')::NUMERIC::SMALLINT  AS weather_delay,       
+            NULLIF(nas_delay,           '')::NUMERIC::SMALLINT  AS nas_delay,           
+            NULLIF(security_delay,      '')::NUMERIC::SMALLINT  AS security_delay,       
+            NULLIF(late_aircraft_delay, '')::NUMERIC::SMALLINT  AS late_aircraft_delay,
+            
             CASE
                 WHEN GREATEST(
                     COALESCE(NULLIF(carrier_delay, '')::NUMERIC, 0),

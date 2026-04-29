@@ -26,9 +26,9 @@ CREATE TABLE silver.fact_flights (
     date_key           DATE,
     aircraft_key       TEXT,
     scheduled_duration_mins INTEGER,
-    actual_duartion_mins    INTEGER,
+    actual_duration_mins    INTEGER,
     delay_mins              INTEGER,
-    passenegers             INTEGER,
+    passengers             INTEGER,
     status      TEXT,
     delay_category      TEXT,
     responsible_party   TEXT,
@@ -103,10 +103,12 @@ DROP TABLE IF EXISTS silver.flight_raw;
 
 CREATE TABLE silver.flight_raw(
     year            SMALLINT,
+    month           SMALLINT,
     quarter         SMALLINT,
     day_of_month    SMALLINT,
     day_of_week     SMALLINT,
     fl_date         DATE,
+    op_carrier      TEXT,
     op_unique_carrier   TEXT,
     tail_num            TEXT,
 
@@ -138,7 +140,7 @@ CREATE TABLE silver.flight_raw(
     arr_time    SMALLINT,
 
     cancelled   BOOLEAN,
-    cancellation_code   BOOLEAN,
+    cancellation_code   TEXT,
     diverted    BOOLEAN,
 
     air_time    SMALLINT,
